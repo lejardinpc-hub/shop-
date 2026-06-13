@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VV PHAIY DER - ຮ້านເຕີມເກມສຸດຄຸ້ມ ບໍລິການ 24 ຊົ່ວໂມງ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Custom Properties & Reset --- */
+        :root {
+            /* Dark Mode Variables (Default) */
+            --bg-dark: #060814;
+            --bg-card: rgba(25, 28, 50, 0.45);
+            --bg-card-hover: rgba(32, 37, 68, 0.7);
+            --primary-neon: #00f2fe;
+            --secondary-neon: #4facfe;
+            --accent-pink: #ff007f;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --whatsapp-green: #25D366;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --neon-glow: rgba(0, 242, 254, 0.25);
+            --header-bg: rgba(6, 8, 20, 0.75);
+            --gradient-1: rgba(0, 242, 254, 0.05);
+            --gradient-2: rgba(255, 0, 127, 0.05);
+        }
+
+        /* Light Mode Variables */
+        [data-theme="light"] {
+            --bg-dark: #f8fafc;
+            --bg-card: rgba(255, 255, 255, 0.75);
+            --bg-card-hover: rgba(255, 255, 255, 0.95);
+            --primary-neon: #0099ff;
+            --secondary-neon: #0066cc;
+            --accent-pink: #d90467;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --glass-border: rgba(15, 23, 42, 0.08);
+            --neon-glow: rgba(0, 153, 255, 0.15);
+            --header-bg: rgba(248, 250, 252, 0.85);
+            --gradient-1: rgba(0, 153, 255, 0.03);
+            --gradient-2: rgba(219, 4, 103, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Lao', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, var(--gradient-1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, var(--gradient-2) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            color: var(--primary-neon);
+            -webkit-text-fill-color: initial;
+            filter: drop-shadow(0 0 8px var(--primary-neon));
+        }
+
+        /* --- ปุ่มสลับโหมด Theme Toggle --- */
+        .theme-toggle-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .theme-toggle-btn:hover {
+            border-color: var(--primary-neon);
+        }
+        .theme-toggle-btn i {
+            font-size: 1.1rem;
+            color: #ffbd4a;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 20px 40px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            background: var(--primary-neon);
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(45deg, var(--accent-pink), #ff52ae);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 127, 0.2));
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 45px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .btn-cta {
+            background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+            color: [data-theme="light"] ? #fff : #030712;
+            color: #fff;
+        }
+        [data-theme="light"] .btn-cta {
+            color: #ffffff;
+        }
+        body:not([data-theme="light"]) .btn-cta {
+            color: #030712;
+        }
+
+        .btn-cta {
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 25px rgba(0, 242, 254, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.5);
+        }
+
+        /* --- Price Table Section --- */
+        .pricing-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--primary-neon);
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 30px 24px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            background: var(--bg-card-hover);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 25px var(--neon-glow);
+        }
+
+        /* Badge */
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 0, 127, 0.15);
+            border: 1px solid var(--accent-pink);
+            color: var(--accent-pink);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .card-badge.best-seller {
+            background: rgba(0, 242, 254, 0.15);
+            border: 1px solid var(--primary-neon);
+            color: var(--primary-neon);
+        }
+
+        .diamond-container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .diamond-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.4));
+        }
+
+        .diamond-amount {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 15px;
+            line-height: 1.3;
+        }
+
+        .diamond-note {
+            font-size: 0.85rem;
+            color: #ffbd4a;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        [data-theme="light"] .diamond-note {
+            color: #b27300;
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            font-weight: 700;
+            margin: 20px 0 25px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .price-tag span {
+            font-size: 1.1rem;
+            color: var(--accent-pink);
+            font-weight: 500;
+        }
+
+        .btn-order {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+        }
+        [data-theme="light"] .btn-order {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .price-card:hover .btn-order {
+            background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+        body:not([data-theme="light"]) .price-card:hover .btn-order {
+            color: #030712;
+        }
+        [data-theme="light"] .price-card:hover .btn-order {
+            color: #ffffff;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 50px 20px 100px 20px;
+            background: var(--bg-dark);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        footer i {
+            color: var(--accent-pink);
+        }
+
+        /* --- Floating WhatsApp Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        .whatsapp-float i {
+            font-size: 1.5rem;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05) translateY(-5px);
+            background-color: #20ba5a;
+        }
+
+        /* --- Responsive Media Queries --- */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 15px 40px 15px;
+            }
+            .hero h1 { 
+                font-size: 2.2rem; 
+            }
+            .hero p { 
+                font-size: 1rem; 
+            }
+            .price-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 18px;
+                font-size: 0.95rem;
+            }
+            .whatsapp-float span {
+                display: none;
+            }
+            .whatsapp-float::after {
+                content: ' ເຕີມເກມຄລิก';
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-gamepad"></i> VV PHAIY DER
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+                <span id="themeText">โหมดมืด</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>ເຕີມເພັດຄຸ້ມທີ່ສຸດ <span>ປອດໄພ 100%</span></h1>
+        <p>ບໍລິການເຕີມເພັດເກมອອນລາຍ ລາຄາຖືກ ສະດວກວ່ອງໄວ ເຮັດລາຍການໄດ້ຕະຫຼອດ 24 ຊົ່ວໂມງ ພຽງແຕ່ເລືອກແພັກເກດແລ້ວທັກຫາພວກເຮົາໄດ້ທันທີ!</p>
+        <a href="#pricing" class="btn-cta">
+            <i class="fa-solid fa-fire"></i> ເບິ່ງລາຄາເພັດທັງໝົດ
+        </a>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <h2 class="section-title">ຕາຕະລາງລາຄา <span>ແພກເກັດເພັດ</span></h2>
+        
+        <div class="price-grid">
+            <div class="price-card">
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">2,195 Diamonds</div>
+                </div>
+                <div>
+                    <div class="price-tag">777,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%202195%20Diamonds" target="_blank" class="btn-order">ສັ່ງຊື້ຕອນນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="card-badge best-seller">ຍອດນິຍົມ</div>
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">3,688 Diamonds</div>
+                </div>
+                <div>
+                    <div class="price-tag">1,257,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%203688%20Diamonds" target="_blank" class="btn-order">ສັ່ງຊື້ຕອນນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">5,532 Diamonds</div>
+                </div>
+                <div>
+                    <div class="price-tag">1,871,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%205532%20Diamonds" target="_blank" class="btn-order">ສັ່ງຊື້ຕອນນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="card-badge">ຄຸ້ມສຸດໆ</div>
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">9,288 Diamonds</div>
+                </div>
+                <div>
+                    <div class="price-tag">3,026,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%209288%20Diamonds" target="_blank" class="btn-order">ສັ່ງຊື้ຕອນນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="card-badge">ຈຳກັດ 1 ຄັ້ງ</div>
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">1,000 Diamonds</div>
+                    <div class="diamond-note">1 ໄອດີສາມາດເຕີມໄດ້ 1 ຄັ້ງ</div>
+                </div>
+                <div>
+                    <div class="price-tag">277,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%201000%20Diamonds%20(ໂປຣ%201%20ຄັ້ງ)" target="_blank" class="btn-order">ສັ່ງຊື້ຕອນນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="card-badge">ຈຳກັດ 1 ຄັ້ງ</div>
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">500 Diamonds</div>
+                    <div class="diamond-note">1 ໄອດີສາມາດເຕີມໄດ້ 1 ຄັ້ງ</div>
+                </div>
+                <div>
+                    <div class="price-tag">137,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%20500%20Diamonds%20(ໂປຣ%201%20ຄັ້ງ)" target="_blank" class="btn-order">ສັ່ງຊື້ຕອນນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="card-badge">ຈຳກັດ 1 ຄັ້ງ</div>
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">300 Diamonds</div>
+                    <div class="diamond-note">1 ໄອດີສາມາດເຕີມໄດ້ 1 ຄັ້ງ</div>
+                </div>
+                <div>
+                    <div class="price-tag">90,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%20300%20Diamonds%20(ໂປຣ%201%20ຄັ້ງ)" target="_blank" class="btn-order">ສັ່ງຊື້ຕອນນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="card-badge">ຈຳກັດ 1 ຄັ້ງ</div>
+                <div class="diamond-container">
+                    <div class="diamond-icon"><i class="fa-solid fa-gem"></i></div>
+                    <div class="diamond-amount">100 Diamonds</div>
+                    <div class="diamond-note">1 ໄອດີສາມາດເຕີມໄດ້ 1 ຄັ້ງ</div>
+                </div>
+                <div>
+                    <div class="price-tag">50,000 <span>ກີບ</span></div>
+                    <a href="https://wa.me/8562076812113?text=ສົນໃຈເຕີມເພັດ%20100%20Diamonds%20(ໂປຣ%201%20ຄັ້ງ)" target="_blank" class="btn-order">ສັ່ງຊື້ຕอนນີ້</a>
+                </div>
+            </div>
+
+            <div class="price-card" style="border: 1px dashed var(--accent-pink);">
+                <div class="diamond-container">
+                    <div class="diamond-icon" style="background: linear-gradient(45deg, var(--accent-pink), #ff52ae); -webkit-background-clip: text;"><i class="fa-solid fa-heart"></i></div>
+                    <div class="diamond-amount">ຂອບໃຈທີ່ອຸດໜູນ</div>
+                    <div class="diamond-note" style="color: var(--text-muted);">ຍινດີໃຫ້ບໍລິການຕະຫຼອດ 24 ຊົ່ວໂມງ</div>
+                </div>
+                <div>
+                    <div class="price-tag" style="font-size: 1.4rem; color: var(--accent-pink);">ຮ້ານ VV PHAIY DER</div>
+                    <a href="https://wa.me/8562076812113?text=ສະບายດີ%20ຢາກສອບຖາມຂໍ້ມູນເພີ່ມເຕີມຄັບ" target="_blank" class="btn-order" style="border-color: rgba(255, 0, 127, 0.3);">ຕິດຕໍ່ສอบຖາມ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026-2027 VV PHAIY DER Store. Crafted with <i class="fa-solid fa-heart"></i> for Gamers.</p>
+    </footer>
+
+    <a href="https://wa.me/8562076812113?text=ສະບາຍດີ%20ຢາກຕິດຕໍ່ເຕີມເກມຄັບ" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>ຕິດຕໍ່ເຕີມເກມຜ່ານ WhatsApp 24h</span>
+    </a>
+
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        // ตรวจสอบ Theme เดิมที่ผู้ใช้เคยเลือกไว้ใน Browser
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        if (currentTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.className = 'fa-solid fa-sun';
+            themeText.innerText = 'โหมดสว่าง';
+        }
+
+        // ฟังก์ชันสลับธีมเมื่อคลิกปุ่ม
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+                themeText.innerText = 'โหมดมืด';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fa-solid fa-sun';
+                themeText.innerText = 'โหมดสว่าง';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
